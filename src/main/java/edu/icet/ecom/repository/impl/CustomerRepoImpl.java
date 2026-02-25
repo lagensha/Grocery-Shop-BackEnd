@@ -37,8 +37,9 @@ public class CustomerRepoImpl implements CustomerRepository {
     }
 
     @Override
-    public boolean deleteCustomers(Integer id) {
-        return false;
+    public boolean deleteCustomers(String id) {
+        String sql="DELETE FROM customer WHERE CustID=?";
+        return jdbcTemplate.update(sql, id)>0;
     }
 
     @Override

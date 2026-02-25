@@ -2,7 +2,6 @@ package edu.icet.ecom.controller;
 
 
 import edu.icet.ecom.dto.CustomerDTO;
-import edu.icet.ecom.service.CustomerService;
 import edu.icet.ecom.service.impl.CustomerServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -28,9 +27,9 @@ public class CustomerController  {
         return false;
     }
 
-
-    public boolean deleteCustomers(Integer id) {
-        return false;
+@DeleteMapping("/delete-by-id/{id}")
+    public boolean deleteCustomers(@PathVariable String id) {
+        return customerService.deleteCustomers(id);
     }
 
     @GetMapping("/all")

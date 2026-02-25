@@ -33,7 +33,18 @@ public class CustomerRepoImpl implements CustomerRepository {
 
     @Override
     public boolean updateCustomers(CustomerDTO customerDTO) {
-        return false;
+        String sql="UPDATE customer SET CustTitle=?, CustName=?, DOB=?, salary=?, CustAddress=?, City=?, Province=?, PostalCode=? WHERE CustID=?";
+        return jdbcTemplate.update(sql,
+                customerDTO.getTitle(),
+                customerDTO.getName(),
+                customerDTO.getDob(),
+                customerDTO.getSalary(),
+                customerDTO.getAddress(),
+                customerDTO.getCity(),
+                customerDTO.getProvince(),
+                customerDTO.getPostalCode(),
+                customerDTO.getId()
+        )>0;
     }
 
     @Override

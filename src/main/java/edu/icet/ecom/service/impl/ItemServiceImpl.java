@@ -20,7 +20,8 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public boolean updateItems(ItemDTO itemDTO) {
-        return false;
+
+        return itemRepo.updateItems(itemDTO);
     }
 
     @Override

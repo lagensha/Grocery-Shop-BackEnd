@@ -20,9 +20,9 @@ public class ItemController{
         return itemService.addItems(itemDTO);
     }
 
-
+@PutMapping("/update")
     public boolean updateItems(ItemDTO itemDTO) {
-        return false;
+        return itemService.updateItems(itemDTO);
     }
 
     @DeleteMapping("/delete-by-id/{itemCode}")

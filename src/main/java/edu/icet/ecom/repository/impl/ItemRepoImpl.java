@@ -28,7 +28,14 @@ public class ItemRepoImpl implements ItemRepository {
 
     @Override
     public boolean updateItems(ItemDTO itemDTO) {
-        return false;
+       String sql="UPDATE item SET Description=?,PackSize=?,UnitPrice=?,QtyOnHand=?  WHERE  ItemCode=? ";
+       return jdbcTemplate.update(sql,
+               itemDTO.getDescription(),
+               itemDTO.getPackSize(),
+               itemDTO.getUnitPrice(),
+               itemDTO.getQtyOnHand(),
+               itemDTO.getItemCode()
+               ) > 0;
     }
 
     @Override

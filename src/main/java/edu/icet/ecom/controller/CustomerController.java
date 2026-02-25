@@ -22,9 +22,9 @@ public class CustomerController  {
         return customerService.addCustomers(customerDTO);
     }
 
-
-    public boolean updateCustomers(CustomerDTO customerDTO) {
-        return false;
+@PutMapping("/update")
+    public boolean updateCustomers(@RequestBody CustomerDTO customerDTO) {
+       return customerService.updateCustomers(customerDTO);
     }
 
 @DeleteMapping("/delete-by-id/{id}")

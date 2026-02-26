@@ -21,7 +21,7 @@ public class ItemController{
     }
 
 @PutMapping("/update")
-    public boolean updateItems(ItemDTO itemDTO) {
+    public boolean updateItems(@RequestBody ItemDTO itemDTO) {
         return itemService.updateItems(itemDTO);
     }
 
